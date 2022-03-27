@@ -10,6 +10,7 @@ public class Voter implements Serializable {
 	private String email;
 	private String uname;
 	private String paswd;
+	private String salt;
 	
 	public int getId() {
 		return id;
@@ -53,9 +54,16 @@ public class Voter implements Serializable {
 	public void setPaswd(String password) {
 		this.paswd = password;
 	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 	
 	public String toString() {
-		return id+" "+fname+" "+lname+" "+ssn+" "+email+" "+uname+" "+paswd;
+		return id+" "+fname+" "+lname+" "+ssn+" "+email+" "+uname+" "+paswd+" "+salt;
 	}
+
 	
 }
