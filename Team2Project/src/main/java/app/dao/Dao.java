@@ -1,5 +1,6 @@
 package app.dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,6 +56,28 @@ public class Dao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	//Checks for duplicate username
+	public boolean checkUname (String uname) {
+		boolean count = true;
+		String sql = "select uname from voters where uname=?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, uname);
+
+
+			ResultSet resultset = stmt.executeQuery();
+			
+			if (resultset.next()) {
+				System.out.println(""+uname+" is already in use");
+				return count;
+            }  
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
 	}
 
 //	public int saveVoter(Voter voter) {

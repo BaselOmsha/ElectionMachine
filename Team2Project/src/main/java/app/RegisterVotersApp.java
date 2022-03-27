@@ -2,6 +2,9 @@ package app;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -34,15 +37,14 @@ public class RegisterVotersApp extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		try {
 		Dao dao = new Dao();
-		
+	
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String ssn = request.getParameter("ssn");
 		String email = request.getParameter("email");
 		String uname = request.getParameter("uname");
 		String paswd = request.getParameter("paswd");
-		
-		Map params = request.getParameterMap();
+
 	
 		if (
 				fname == null || fname.isEmpty() ||
@@ -54,8 +56,12 @@ public class RegisterVotersApp extends HttpServlet {
 				
 			RequestDispatcher rd=request.getRequestDispatcher("/fillUp.html");
 	        rd.include(request,  response);
-		} else {	
-		
+	       
+		 } else if (dao.checkUname(uname)){  //if user name is in use reload the form
+			 RequestDispatcher rd=request.getRequestDispatcher("/UnameTaken.html");
+		        rd.include(request,  response); 
+	    } else{
+	        
 		// Create salt and hashed pw
 		String salt = SecurityUtils.getSalt();
 		String hashpw = SecurityUtils.getPasswordHashed(paswd, salt);
