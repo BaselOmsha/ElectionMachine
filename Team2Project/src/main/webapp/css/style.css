@@ -27,7 +27,8 @@ form .input {
 /*navbar bakground color change.
 */
 .navbar {
-    background-color: #c4c4c4;
+    background-color: #ffffff;
+    overflow: hidden;
 }
 /* Spaces between items are 
 increased in the navbar.*/
@@ -42,7 +43,7 @@ are increased in the navbar.*/
 }
 /**/
 .nav-link:hover {
-    background-color: #eeea14;
+    background-color: #1E90FF;
     border-radius: 25px;    
 }
 a:hover {
@@ -80,9 +81,9 @@ and white & blue background.*/
 .box {
     background-color: #ffffffea;
     width: auto;
-    height: 556px;
+    height: auto;
     position: relative;
-    flex-direction: column;
+    flex-direction: raw;
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
@@ -161,7 +162,7 @@ top of each other.*/
 }
 /*container.*/
 .asuad {
-    background-color: #000000;
+    background-color: #eeeeef;
     width: 498px;
     height: auto;
     position: relative;
@@ -273,23 +274,24 @@ top of each other.*/
 .box1 {
     background-color: #ffffff;
     color: #1d19f6;
-    width: 358px;
+    width: 370px;
     height: 393px;
     position: relative;
     flex-direction: row;
     display: flex;
     flex-wrap: wrap; 
+    text-align:center;
     justify-content: center; 
     align-items: center;
     text-shadow: 2px 2px 4px 
-    #000000
+    #eeeeef
     #494848;
 }
 .box1:before {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    border-top: 50px solid #000000;
+    border-top: 50px solid #eeeeef;
     border-right: 50px solid #ffffff;
     width: 0;
 }
@@ -297,7 +299,7 @@ top of each other.*/
     content: '';
     position: absolute;
     bottom: 0; right: 0;
-    border-bottom: 50px solid #000000;
+    border-bottom: 50px solid #eeeeef;
     border-left: 50px solid #ffffff;
     width: 0;
 }
