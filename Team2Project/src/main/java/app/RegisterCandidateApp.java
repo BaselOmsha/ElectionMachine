@@ -40,7 +40,6 @@ public class RegisterCandidateApp extends HttpServlet {
 		String party= request.getParameter("party");
 		String email = request.getParameter("email");
 		String uname = request.getParameter("uname");
-		int age = Integer.parseInt(request.getParameter("age"));
 		String paswd = request.getParameter("paswd");
 
 	
@@ -57,16 +56,16 @@ public class RegisterCandidateApp extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("/candFillUp.html");
 	        rd.include(request,  response);
 	       
-		 } else if (dao.checkUname(uname)){  //if user name is in use reload the form
+		 } else if (dao.checkCandUname(uname)){  //if user name is in use reload the form
 			 RequestDispatcher rd=request.getRequestDispatcher("/unameTakenCan.html");
 		        rd.include(request,  response); 
 	    } else{
-	        
+	    int age = Integer.parseInt(request.getParameter("age"));
 		// Create salt and hashed pw
 		String salt = SecurityUtils.getSalt();
 		String hashpw = SecurityUtils.getPasswordHashed(paswd, salt);
 		
-		dao.addUser(fname, lname, ssn, email, uname, hashpw, salt);
+		dao.addCandidate(fname, lname, ssn, party, email, uname, age, hashpw, salt);
 		
 		dao.close();
 		response.sendRedirect("candFilled.html");

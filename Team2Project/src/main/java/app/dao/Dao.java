@@ -106,7 +106,7 @@ public class Dao {
 	//Checks for duplicate candidates' username
 	public boolean checkCandUname (String uname) {
 		boolean count = true;
-		String sql = "select uname from voters where uname=?";
+		String sql = "select uname from candidate where uname=?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
