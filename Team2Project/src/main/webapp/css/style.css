@@ -77,6 +77,19 @@ and white & blue background.*/
     flex-wrap: wrap; 
 
 }
+
+.stripe{
+	background-color: #000000;
+    width: auto;
+    height: 25px;
+    position: relative;
+    flex-direction: raw;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden;
+}
 /*box config.*/
 .box {
     background-color: #ffffffea;

@@ -111,6 +111,8 @@ tr:nth-child(even) {
 		<div class="box">
 		<br><br>
 			<h1>Voter Registration Form</h1><br>
+			<h5 style="color:green">Registration succeed. Thank you for registering as a voter!</h5>
+			<h5 style="color:green">You may log in from the Registered Voter page</h5><br>
 			<form method='post' action='/voter'>
 				<table>
 					<tr>
@@ -184,11 +186,11 @@ tr:nth-child(even) {
 					onclick='sendInfo(this.form);'>
 			</form>
 			<br>
-			<h3 style="color:green">Registration succeed. Thank you for registering as a voter!</h3>
-			<h3 style="color:green">You may log in from the Registered Voter page</h3>
+			
 			<br> Items with an asterisk (*) are mandatory <br><br>
 		</div>	
 		</main>
+		<div class="stripe"></div>
 		<footer>
 			<div class="container">
 				<div class="py-3 my-4">
@@ -201,6 +203,7 @@ tr:nth-child(even) {
 					<p class="text-center text-muted">&copy; 2022 HAMK, Team2</p>
 				</div>
 			</div>
+		</footer>	
 		<script>
             function myFunction() {
               var x = document.getElementById("myInput");
