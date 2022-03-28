@@ -99,7 +99,7 @@ tr:nth-child(even) {
 								aria-current="page" href="votRegForm.html" style=" font-size: 20px"><b>Voter Registration</b></a></li>
 							<li class="nav-item"><a class="nav-link active" href="candRegForm.html" style=" font-size: 20px"><b>Candidate Registration</b></a>
 							</li>
-							<li class="nav-item"><a class="nav-link active" href="#" style=" font-size: 20px"><b>Admin Login</b></a>
+							<li class="nav-item"><a class="nav-link active" href="adminLogin.html" style=" font-size: 20px"><b>Admin Login</b></a>
 							</li>
 						</ul>
 					</div>
@@ -111,6 +111,8 @@ tr:nth-child(even) {
 		<div class="box">
 		<br><br>
 			<h1>Candidate Registration Form</h1><br>
+				<h5 style="color:red">Username is taken. Choose a different one!</h5><br>
+			
 			<form method='post' action='/candidate'>
 				<table>
 					<tr>
@@ -208,10 +210,10 @@ tr:nth-child(even) {
 					onclick='sendInfo(this.form);'>
 			</form>
 			<br>
-			<h3 style="color:red">Username is Taken. Choose a different one!</h3>
 			<br> Items with an asterisk (*) are mandatory <br><br>
 		</div>	
 		</main>
+		<div class="stripe"></div>
 		<footer>
 			<div class="container">
 				<div class="py-3 my-4">
@@ -224,6 +226,7 @@ tr:nth-child(even) {
 					<p class="text-center text-muted">&copy; 2022 HAMK, Team2</p>
 				</div>
 			</div>
+		</footer>	
 		<script>
             function myFunction() {
               var x = document.getElementById("myInput");
