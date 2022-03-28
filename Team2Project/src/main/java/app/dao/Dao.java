@@ -57,8 +57,54 @@ public class Dao {
 			e.printStackTrace();
 		}
 	}
-	//Checks for duplicate username
+	//Checks for duplicate voters' username
 	public boolean checkUname (String uname) {
+		boolean count = true;
+		String sql = "select uname from voters where uname=?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, uname);
+
+
+			ResultSet resultset = stmt.executeQuery();
+			
+			if (resultset.next()) {
+				System.out.println(""+uname+" is already in use");
+				return count;
+            }  
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
+	public void addCandidate(String fname, String lname, String ssn, String party, String email, 
+			String uname, int age, String paswd, String salt) {
+		
+		String sql = "insert into candidate(fname, lname, ssn, party, email, uname, age, paswd, salt) values (?,?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, fname);
+			stmt.setString(2, lname);
+			stmt.setString(3, ssn);
+			stmt.setString(4, party);
+			stmt.setString(5, email);
+			stmt.setString(6, uname);
+			stmt.setInt(7, age);
+			stmt.setString(8, paswd);
+			stmt.setString(9, salt);
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	//Checks for duplicate candidates' username
+	public boolean checkCandUname (String uname) {
 		boolean count = true;
 		String sql = "select uname from voters where uname=?";
 		try {
