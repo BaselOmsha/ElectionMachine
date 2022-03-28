@@ -30,7 +30,8 @@ public class SecurityUtils {
 
 	public static String getSalt() {
 		String result = "";
-		SecureRandom rd = new SecureRandom();
+		
+		SecureRandom rd = new SecureRandom();//getting random salt
 		byte[] salt = new byte[16];
 		rd.nextBytes(salt);
 		// encode bytearray to string
